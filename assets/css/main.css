@@ -208,13 +208,19 @@ bt {
   font-size: 12px;
 }
 
-.colored {
-  background-color: lightsalmon;
+/* .centered {
+  display: flex;
+  justify-content: center;
+} */
+
+.centeredImg {
+  margin: auto;
 }
 
 /* ================== PORTFOLIO IMAGES HOVER EFFECT ================== */
 /* Effects also are controled by hover.zoom.js */
 .zoom {
+  width: 25em;
   display: block;
   position: relative;
   overflow: hidden;
