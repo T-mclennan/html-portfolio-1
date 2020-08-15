@@ -1,7 +1,7 @@
 $(function () {
   $('.blue').hoverZoom({
     overlayColor: '#3498db',
-    zoom: 1,
+    zoom: 0,
   });
 
   $('.green').hoverZoom({

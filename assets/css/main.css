@@ -49,6 +49,10 @@ p {
   text-align: center;
 }
 
+.padded-box {
+  padding: 0 5em;
+}
+
 /* Links */
 a {
   color: #0d9dd1;
@@ -220,11 +224,13 @@ bt {
 /* ================== PORTFOLIO IMAGES HOVER EFFECT ================== */
 /* Effects also are controled by hover.zoom.js */
 .zoom {
+  border-radius: 0.5em;
   width: 25em;
   display: block;
   position: relative;
   overflow: hidden;
   background: transparent url(../img/loader.gif) no-repeat center;
+  margin: auto;
 }
 
 .zoomOverlay {
