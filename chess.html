@@ -60,40 +60,125 @@
 
     <div class="container pt">
       <div class="row mt">
-        <div class="col-lg-6 col-lg-offset-3 centered">
+        <div class="col-lg-6 col-lg-offset-3 ">
           <h3>CHESS 960</h3>
+          <h4>An intriguing twist on the classic game</h4>
           <hr />
-          <p>
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The point
-            of using Lorem Ipsum is that it has a more-or-less normal
-            distribution of letters, as opposed to using 'Content here, content
-            here', making it look like readable English.
+          <p> Chess 960 turns normal chess on it's head by randomizing the start positons </p>
+          <h4>Tools and Architecture: </h4>
+        </br>
+          <h5>Backend:</h5>
+          <ul>
+            <li>Node.js and express are used for server logic and route handling</li>
+            <li>MongoDB atlas used with Mongoose for storage</li>
+          </ul>
+            
+          <h5>Frontend:</h5>
+          <ul>
+            <li>Components are created with React, Reactstrap and CSS</li>
+            <li>JWT and Local Storage are used for Authentication and player permissions</li>
+            <li>Redux is used for application level state management of Authentication, Player, Game, and Error data</li>
+            <li>Axios is used for server requests</li>
+            <li>React Router Dom is used for client-side routing</li>
+            <li>Socket.io is used as websocket for gameplay and player display in lobby</li>
+          </ul>
+        </br>
+          <h5>Game Tools:</h5>
+          <ul>
+            <li>[Chess.js](https://github.com/jhlywa/chess.js/) is used for move validation</li>
+            <li>[Chessboard.jsx](https://github.com/willb335/chessboardjsx/) is used for the game board</li>
+          </ul>
+
+        </br>
+
+        <h5>Authentication:</h5>
+        <p>
+            Whena player logs in a JSON webtoken is created for the session and is stored in local storage of the browser. 
+            When a player logs out this is cleared. This gives the player the ability to maintain a session and not have to log 
+            in every visit, unless they explicitly log out. This feature is currently disabled so that players can open multiple tabs
+            and play themselves, as a demonstration of the app.
+        </p>
+      </br>
+        <h5>Lobby: </h5>
+        
+        <p>
+            Left sidebar has game options: Dashboard, Quickplay, Findgame, Standings
+            Right sidebar has player list, with green for currently logged in players
           </p>
+           
+        </br>
+        <h5>Dashboard:</h5> 
+        <p>
+             If the player has no games pending, the Dashboard welcomes the player and provides information.
+             Otherwise the dashboard has a listing of current games to re-open.
+        </p>  
+      </br>         
+        <h5>Quickplay:</h5>
+        <p>
+           Joins the most recently created open game.
+           If none is available it will create and open a default game.
+          </p>
+
+        <h5>Findgame:</h5> 
+        <p>
+          Displays a table listing of all the open games that are possible to join
+          Clicking on a listing will join and open that game. 
+        </p>
+                    
+        <h5>Standings:</h5> 
+        <p>
+          Displays a table listing of the top 10 player standings. 
+        </p>
+                     
+        <p>
+          Future releases will add interactivity for the list of players on the right side: the ability to click a players name and
+          challenge them, or open a chat modal. 
+        </p>
+          
+          
+        <h5>Gameplay:</h5>
+        <p>
+          When any game event happens such as a player joining, a move being made, etc. the information is bundled and sent to the
+          server, which broadcasts it to other players in the game. Many events also coincide with dispatching a redux action to save
+          the game state into the store as well as an API call to save the information in the servers database. 
+        </p>
+           
+        <p>
+           The game status is checked during the initial load, as well as after each move. Possible status could show a player in
+           check or checkmate, a stalemate position, draw from three-fold repetition. If the game is over a modal will pop up 
+           displaying the status and the winner of the match. 
+          </p>
+        
+        <p>
+           Future development of the game will include the addition of a scoring algorithm for rated games, the implementation of a
+           time clock, and the addition of castling. (Not currently supported by our chess engine for 960)
+        </p> 
+
+        <h5>Inspiration:</h5>
+
+        <p>
+            Chess 960 is a variation of [Fischer Random](https://en.wikipedia.org/wiki/Fischer_random_chess), where the back row of pieces is randomized to encourage improvised play.
+            However, because true randomization would lead to many board positions that are far out of balance, the board is 
+            constructed according to the following conditions:
+          </p>
+        <ul>
+          <li>Both players have identical configurations at the start of the game.</li>
+          <li>Each player is first given a black and white bishop in random position.</li>
+          <li>The queen is placed in one of the remaining 6 squares.</li>
+          <li>The black and white knight are played randomly in the remaining 5 and 4 squares.</li>
+          <li>With the 3 remaining squares, the king goes in the middle with the rooks on each side,
+            which allows for castling in both directions. Once the start position is generated, it is passed as fen notation into both the board and game logic.</li>
+        </ul>
+          </h5>
         </div>
       </div>
       <div class="row mt centered">
         <div class="col-lg-8 col-lg-offset-2">
           <p>
-            <img
-              class="img-responsive"
-              src="assets/img/portfolio/1.jpg"
-              alt=""
-            />
+            <img width=800 alt="Lobby" src="https://user-images.githubusercontent.com/43154475/74298059-84ff9280-4cfd-11ea-93d2-6a30c6739d99.png">
           </p>
           <p>
-            <img
-              class="img-responsive"
-              src="assets/img/portfolio/2.jpg"
-              alt=""
-            />
-          </p>
-          <p>
-            <img
-              class="img-responsive"
-              src="assets/img/portfolio/3.jpg"
-              alt=""
-            />
+           <img width="800" alt="Game" src="https://user-images.githubusercontent.com/43154475/74298052-7f09b180-4cfd-11ea-9155-c3e02eb56dec.png">
           </p>
         </div>
       </div>
